@@ -1,13 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #faf5ec;
-  --color-cream-deep: #f3e9d7;
-  --color-choco: #3b2317;
-  --color-choco-soft: #5a3b28;
-  --color-gold: #c19a4b;
-  --color-gold-soft: #d8b874;
-  --color-rose: #b76e79;
+  /* Palette derived from chokodelights.in brand color schemes:
+     bg #F7E1B5 / #E4CDA3 / taupe #B7A39B, foreground #3B2A24,
+     gold #C79740 / amber #EBB242, warm brown #7A6258 */
+  --color-ivory: #fbf4e3; /* main page background - light warm cream */
+  --color-ivory-deep: #f7e9ce; /* alternate section band */
+  --color-sand: #f7e1b5; /* brand warm gold-cream */
+  --color-beige: #e4cda3; /* brand beige */
+  --color-taupe: #b7a39b; /* brand muted taupe */
+  --color-champagne: #f4e2b8;
+
+  --color-espresso: #3b2a24; /* brand foreground */
+  --color-espresso-soft: #7a6258; /* brand warm brown */
+
+  --color-gold: #c79740; /* brand gold */
+  --color-gold-soft: #dda93e;
+  --color-gold-bright: #ebb242; /* brand amber */
+  --color-wine: #7a6258; /* warm brown accent */
 
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Inter", system-ui, sans-serif;
@@ -24,10 +34,15 @@ a[href],
 }
 
 body {
-  background-color: var(--color-cream);
-  color: var(--color-choco);
+  background-color: var(--color-ivory);
+  color: var(--color-espresso);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: #fff;
 }
 
 @keyframes floatUp {
@@ -42,19 +57,77 @@ body {
 }
 
 .reveal {
-  animation: floatUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: floatUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+/* Small uppercase gold label above headings */
+.eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 500;
+}
+
+/* Gold gradient text for accents */
+.gold-text {
+  background: linear-gradient(
+    100deg,
+    var(--color-gold) 0%,
+    var(--color-gold-bright) 45%,
+    var(--color-gold) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* Give the slanted edge of italic glyphs (e.g. the final "d") room so it
+     isn't clipped, and keep a clear gap before the next word. */
+  padding-right: 0.06em;
+}
+
+/* Thin ornamental gold rule */
 .gold-line {
   background: linear-gradient(
     90deg,
     transparent,
-    var(--color-gold) 20%,
-    var(--color-gold) 80%,
+    var(--color-gold) 25%,
+    var(--color-gold) 75%,
     transparent
   );
 }
 
+/* Centered ornament: line - diamond - line */
+.ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  color: var(--color-gold);
+}
+.ornament::before,
+.ornament::after {
+  content: "";
+  height: 1px;
+  width: 3rem;
+  background: linear-gradient(90deg, transparent, var(--color-gold));
+}
+.ornament::after {
+  background: linear-gradient(90deg, var(--color-gold), transparent);
+}
+
 .text-balance {
   text-wrap: balance;
+}
+
+/* Subtle marquee for the trust strip */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 28s linear infinite;
 }

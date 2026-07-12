@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 //
 // TODO: Wire this up to a Google Sheet. The client will provide the sheet
 // later. Recommended approach: a Google Apps Script Web App URL stored in
-// process.env.GOOGLE_SHEET_WEBHOOK — then POST the lead payload to it here.
+// process.env.GOOGLE_SHEET_WEBHOOK - then POST the lead payload to it here.
 //
 // For now we validate the input, log it server-side, and return a success
 // message confirming the number has been recorded.
@@ -40,7 +40,7 @@ export async function POST(request) {
   };
 
   // Placeholder for Google Sheet write.
-  console.log("[LEAD CAPTURED — pending Google Sheet setup]", lead);
+  console.log("[LEAD CAPTURED - pending Google Sheet setup]", lead);
 
   return NextResponse.json({
     ok: true,

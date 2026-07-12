@@ -21,21 +21,30 @@ export const viewport = {
 };
 
 export const metadata = {
-  title: "Choko Delights — Bulk Chocolates & Gift Hampers for Business",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ||
+      (process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : "http://localhost:3000")
+  ),
+  title: "Choko Delights - Luxury Chocolate Hampers & Premium Gifting",
   description:
-    "Handcrafted chocolates, curated gift hampers and decor trays — made for bulk & corporate orders. Trusted by sweet shops, HR teams and wedding planners across India.",
+    "Premium luxury gifting house. Handcrafted chocolates & couture hampers for weddings, festivals, personalized gifts and corporate & bulk orders. Delivered PAN India.",
   keywords: [
-    "bulk chocolates",
-    "corporate gifting",
+    "luxury gifting",
     "wedding gift hampers",
-    "chocolate hampers India",
+    "corporate gifting",
+    "festive hampers",
+    "personalized chocolate gifts",
+    "bulk chocolate hampers India",
     "Choko Delights",
   ],
   openGraph: {
-    title: "Choko Delights — Bulk Chocolates & Gift Hampers",
+    title: "Choko Delights - Luxury Chocolate Hampers & Premium Gifting",
     description:
-      "Curated chocolate hampers for corporate gifting, weddings and resellers. One Bite, Endless Cravings.",
+      "Handcrafted chocolates & couture hampers for weddings, festivals and corporate gifting. An experience, beautifully wrapped.",
     type: "website",
+    images: ["/images/hero-peacock.png"],
   },
 };
 
