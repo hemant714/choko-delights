@@ -25,6 +25,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Always render in light mode — ignore the OS/browser dark-mode setting so
+     the brand colors stay identical on every device. */
+  color-scheme: only light;
 }
 
 button:not(:disabled),

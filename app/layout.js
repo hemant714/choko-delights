@@ -18,6 +18,9 @@ const inter = Inter({
 export const viewport = {
   width: "device-width",
   initialScale: 1,
+  // Force light rendering regardless of the device's dark-mode setting.
+  colorScheme: "light",
+  themeColor: "#fbf4e3",
 };
 
 export const metadata = {
