@@ -15,7 +15,7 @@ export const site = {
   phoneDisplay: "073060 00005",
   phoneDial: "+917306000005",
 
-  email: "chokodelights@gmail.com",
+  email: "chokodelights2@gmail.com",
 
   location:
     "Plot No. 20, Ramdarbar, Industrial Area Phase II, Chandigarh, 160002",

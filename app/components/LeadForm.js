@@ -25,7 +25,13 @@ export default function LeadForm({ compact = false }) {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, segment }),
+        body: JSON.stringify({
+          name,
+          phone,
+          segment,
+          sourceUrl:
+            typeof window !== "undefined" ? window.location.href : "",
+        }),
       });
       const data = await res.json();
 
