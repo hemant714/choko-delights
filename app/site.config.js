@@ -21,9 +21,8 @@ export const site = {
     "Plot No. 20, Ramdarbar, Industrial Area Phase II, Chandigarh, 160002",
 
   social: {
-    instagram: "https://instagram.com/",
+    instagram: "https://www.instagram.com/chokodelights?igsh=ZnNtYncyOHc4aDB5",
     facebook: "https://facebook.com/",
-    youtube: "https://youtube.com/",
   },
 };
 

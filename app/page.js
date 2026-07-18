@@ -549,7 +549,6 @@ export default function Home() {
           <div className="flex gap-5 text-sm text-espresso-soft">
             <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-espresso">Instagram</a>
             <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-espresso">Facebook</a>
-            <a href={site.social.youtube} target="_blank" rel="noopener noreferrer" className="hover:text-espresso">YouTube</a>
           </div>
         </div>
         <div className="border-t border-espresso/10 py-5 text-center text-xs text-espresso-soft/70">

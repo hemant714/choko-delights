@@ -13,6 +13,38 @@ export const runtime = "nodejs";
 //   GOOGLE_SHEETS_TAB (optional)   — worksheet/tab name (default "Leads")
 // Column order: Timestamp | Name | Phone | Enquiry | Source URL
 // ─────────────────────────────────────────────────────────────
+// Makes the private key usable no matter how it was pasted into an env var:
+//  - strips accidental surrounding single/double quotes
+//  - converts escaped "\n" sequences into real newlines
+//  - supports base64-encoded keys (paste the whole key as base64 if quoting
+//    keeps breaking — this detects and decodes it)
+function normalizePrivateKey(raw) {
+  let key = (raw || "").trim();
+
+  // Strip one layer of surrounding quotes if present.
+  if (
+    (key.startsWith('"') && key.endsWith('"')) ||
+    (key.startsWith("'") && key.endsWith("'"))
+  ) {
+    key = key.slice(1, -1);
+  }
+
+  // If it doesn't look like a PEM key, assume it's base64-encoded.
+  if (!key.includes("BEGIN") ) {
+    try {
+      const decoded = Buffer.from(key, "base64").toString("utf8");
+      if (decoded.includes("BEGIN")) key = decoded;
+    } catch {
+      /* ignore — fall through */
+    }
+  }
+
+  // Convert escaped newlines to real newlines.
+  key = key.replace(/\\n/g, "\n");
+
+  return key;
+}
+
 async function appendToSheet(row) {
   const {
     GOOGLE_SHEETS_CLIENT_EMAIL,
@@ -31,8 +63,7 @@ async function appendToSheet(row) {
 
   const auth = new google.auth.JWT({
     email: GOOGLE_SHEETS_CLIENT_EMAIL,
-    // In env files newlines are escaped as \n — convert them back.
-    key: GOOGLE_SHEETS_PRIVATE_KEY.replace(/\\n/g, "\n"),
+    key: normalizePrivateKey(GOOGLE_SHEETS_PRIVATE_KEY),
     scopes: ["https://www.googleapis.com/auth/spreadsheets"],
   });
 
