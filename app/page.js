@@ -18,6 +18,22 @@ function PhoneIcon({ className = "h-5 w-5" }) {
     </svg>
   );
 }
+function InstagramIcon({ className = "h-5 w-5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className={className} aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
+function FacebookIcon({ className = "h-5 w-5" }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.9 3.78-3.9 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.9h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z" />
+    </svg>
+  );
+}
 
 const CATEGORIES = [
   {
@@ -107,8 +123,8 @@ const TRUST = [
   "Premium Packaging",
   "Fully Customisable",
   "PAN India Delivery",
-  "Luxury Presentation",
-  "Small-Batch Chocolates",
+  "Luxury Hampers and Platters",
+  "Wide variety of Chocolates",
 ];
 
 export default function Home() {
@@ -160,22 +176,44 @@ export default function Home() {
 
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 md:grid-cols-[1.05fr_1fr] md:py-24">
           <Reveal>
-            <span className="eyebrow">The Luxury Gifting House</span>
+            <div className="-mt-4 space-y-1.5 sm:-mt-8" aria-label="Choko Delights" role="img">
+              <Image
+                src="/word-choko.png"
+                alt=""
+                width={303}
+                height={65}
+                priority
+                className="h-9 w-auto sm:h-11"
+              />
+              <Image
+                src="/word-delights.png"
+                alt=""
+                width={415}
+                height={65}
+                priority
+                className="h-9 w-auto sm:h-11"
+              />
+            </div>
+            <span className="eyebrow mt-4 block">The Luxury Gifting House</span>
             <h1 className="mt-5 font-serif text-[2.6rem] leading-[1.06] tracking-tight text-espresso text-balance sm:text-6xl">
-              Some gifts are <span className="gold-text italic">remembered</span> long
-              after the last bite.
+              Some Gifts are <span className="gold-text italic">Remembered</span> Long
+              After the Last Bite.
             </h1>
             <p className="mt-6 max-w-md text-base leading-relaxed text-espresso-soft sm:text-lg">
-              Handcrafted chocolates and couture hampers, curated for weddings,
-              festivals and the moments that matter. Choko Delights isn't just
-              chocolate - it's an experience, beautifully wrapped.
+              Handcrafted chocolates and couture{" "}
+              <span className="font-semibold text-espresso">Hampers</span>,
+              curated for{" "}
+              <span className="font-semibold text-espresso">Weddings</span>,
+              Festivals and the moments that matter.{" "}
+              <span className="font-semibold text-espresso">Choko Delights</span>{" "}
+              isn't just Chocolate - it's an experience, beautifully wrapped.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <a
                 href="#enquire"
                 className="rounded-full bg-espresso px-7 py-3.5 text-center font-medium tracking-wide text-ivory shadow-lg shadow-espresso/20 transition hover:bg-gold"
               >
-                Order Your Luxury Hamper
+                Click for more Designs
               </a>
               <a
                 href={whatsappLink()}
@@ -188,7 +226,7 @@ export default function Home() {
               </a>
             </div>
             <div className="mt-8 flex items-center gap-3 text-sm text-espresso-soft">
-              <span className="text-gold">★★★★★</span>
+              <span className="text-gold-bright">★★★★★</span>
               <span>Loved for luxury packaging, great variety & handcrafted quality.</span>
             </div>
           </Reveal>
@@ -236,7 +274,7 @@ export default function Home() {
         <Reveal className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">Our Collections</span>
           <h2 className="mt-4 font-serif text-3xl text-espresso text-balance sm:text-4xl md:whitespace-nowrap md:text-5xl">
-            Curated for life's finest occasions
+            Curated For Life's Finest Occasions
           </h2>
           <div className="ornament mt-5">◆</div>
         </Reveal>
@@ -291,14 +329,16 @@ export default function Home() {
           <Reveal delay={120} className="order-1 md:order-2">
             <span className="eyebrow">The Choko Experience</span>
             <h2 className="mt-4 font-serif text-3xl text-espresso text-balance sm:text-4xl">
-              More than chocolate - a feeling you can gift
+              More Than Chocolate - A Feeling You Can Gift
             </h2>
             <p className="mt-5 leading-relaxed text-espresso-soft">
-              Born in Chandigarh, Choko Delights was built on a simple belief:
-              that a gift should feel as special as the person receiving it. Every
-              hamper is hand-assembled, every chocolate crafted in small batches,
-              and every detail - from the ribbon to the reveal - designed to
-              delight.
+              Born in{" "}
+              <span className="font-semibold text-espresso">Chandigarh</span>,{" "}
+              <span className="font-semibold text-espresso">Choko Delights</span>{" "}
+              was built on a simple belief: that a gift should feel as special as
+              the person receiving it. Every hamper is hand-assembled, every
+              chocolate crafted in small batches, and every detail - from the
+              ribbon to the reveal - designed to delight.
             </p>
             <p className="mt-4 leading-relaxed text-espresso-soft">
               Whether it's a grand wedding, a festive celebration or a corporate
@@ -324,12 +364,12 @@ export default function Home() {
               Bulk & Custom Gifting
             </span>
             <h2 className="mt-4 font-serif text-3xl text-ivory text-balance sm:text-4xl md:text-5xl">
-              Planning a bulk order?
+              Planning A Bulk Order?
             </h2>
             <p className="mt-5 max-w-md leading-relaxed text-ivory/75">
               Looking for customised bulk gifting for a wedding, a grand event or
               your entire team? From 50 to 5,000+ hampers, our team designs at
-              scale - beautifully, and delivered PAN India, on time.
+              scale - beautifully, and delivered PAN INDIA, on time.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4">
               <a
@@ -396,7 +436,7 @@ export default function Home() {
           <Reveal delay={120}>
             <span className="eyebrow">Corporate Gifting</span>
             <h2 className="mt-4 font-serif text-3xl text-espresso text-balance sm:text-4xl">
-              Impress clients. Delight your team.
+              Impress Clients. Delight Your Team.
             </h2>
             <p className="mt-5 leading-relaxed text-espresso-soft">
               Elevate every corporate occasion - Diwali, onboarding, appreciation
@@ -430,7 +470,7 @@ export default function Home() {
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="eyebrow">Why Choko Delights</span>
             <h2 className="mt-4 font-serif text-3xl text-espresso text-balance sm:text-4xl md:text-5xl">
-              Luxury is in every detail
+              Luxury Is In Every Detail
             </h2>
             <div className="ornament mt-5">◆</div>
           </Reveal>
@@ -460,7 +500,7 @@ export default function Home() {
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">Loved & Trusted</span>
           <h2 className="mt-4 font-serif text-3xl text-espresso text-balance sm:text-4xl md:text-5xl">
-            Words from our gifting family
+            Words From Our Gifting Family
           </h2>
           <div className="ornament mt-5">◆</div>
         </Reveal>
@@ -469,7 +509,7 @@ export default function Home() {
           {TESTIMONIALS.map((t, i) => (
             <Reveal key={t.name} delay={i * 120}>
               <figure className="flex h-full flex-col rounded-2xl border border-espresso/10 bg-ivory p-7 shadow-sm">
-                <div className="text-gold">★★★★★</div>
+                <div className="text-gold-bright">★★★★★</div>
                 <blockquote className="mt-4 flex-1 font-serif text-lg italic leading-relaxed text-espresso">
                   “{t.quote}”
                 </blockquote>
@@ -492,7 +532,7 @@ export default function Home() {
               Let's Create Something Beautiful
             </span>
             <h2 className="mt-4 font-serif text-3xl text-ivory text-balance sm:text-4xl md:text-5xl">
-              Request a custom quote today
+              Request A Custom Quote Today
             </h2>
             <p className="mt-5 max-w-md leading-relaxed text-ivory/75">
               Share your name and number - our in-house team will reach out with
@@ -541,14 +581,34 @@ export default function Home() {
             alt="Choko Delights"
             width={732}
             height={646}
-            className="h-16 w-auto"
+            className="h-24 w-auto sm:h-28"
           />
-          <p className="max-w-xs text-sm text-espresso-soft">
+          <p className="max-w-xs text-center text-sm text-espresso-soft">
             {site.tagline} - premium luxury gifting, handcrafted in Chandigarh.
           </p>
-          <div className="flex gap-5 text-sm text-espresso-soft">
-            <a href={site.social.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-espresso">Instagram</a>
-            <a href={site.social.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-espresso">Facebook</a>
+          <div className="flex items-center gap-4">
+            <a
+              href={site.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="flex h-11 w-11 items-center justify-center rounded-full text-white shadow-md transition hover:scale-110"
+              style={{
+                background:
+                  "linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)",
+              }}
+            >
+              <InstagramIcon className="h-6 w-6" />
+            </a>
+            <a
+              href={site.social.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1877F2] text-white shadow-md transition hover:scale-110"
+            >
+              <FacebookIcon className="h-6 w-6" />
+            </a>
           </div>
         </div>
         <div className="border-t border-espresso/10 py-5 text-center text-xs text-espresso-soft/70">
