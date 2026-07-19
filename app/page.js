@@ -1,6 +1,7 @@
 import Image from "next/image";
 import LeadForm from "./components/LeadForm";
 import Reveal from "./components/Reveal";
+import HeroCarousel from "./components/HeroCarousel";
 import { site, whatsappLink } from "./site.config";
 
 /* ── Reusable icons ── */
@@ -234,13 +235,13 @@ export default function Home() {
           <Reveal delay={150} className="relative">
             <div className="relative overflow-hidden rounded-[2rem] border border-gold/25 shadow-2xl shadow-espresso/15">
               <div className="relative aspect-[4/5]">
-                <Image
-                  src="/images/hero-peacock.png"
-                  alt="Luxury Choko Delights wedding hamper basket"
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  className="object-cover"
+                <HeroCarousel
+                  images={[
+                    "/images/hero-3.png",
+                    "/images/hero-4.png",
+                    "/images/hero-1.png",
+                    "/images/hero-2.png",
+                  ]}
                 />
               </div>
             </div>
@@ -421,14 +422,14 @@ export default function Home() {
       <section id="corporate" className="mx-auto max-w-6xl px-5 py-16 sm:py-20 md:py-24">
         <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14">
           <Reveal className="relative">
-            <div className="relative overflow-hidden rounded-[1.75rem] border border-gold/20 shadow-xl shadow-espresso/10">
-              <div className="relative aspect-[4/3]">
+            <div className="relative mx-auto max-w-sm overflow-hidden rounded-[1.75rem] border border-gold/20 shadow-xl shadow-espresso/10">
+              <div className="relative aspect-[3/4]">
                 <Image
-                  src="/images/luxury-frame.png"
-                  alt="Choko Delights corporate luxury hamper"
+                  src="/images/hero-4.png"
+                  alt="Choko Delights corporate luxury hamper with wine and gourmet treats"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover"
+                  className="object-cover object-center"
                 />
               </div>
             </div>
