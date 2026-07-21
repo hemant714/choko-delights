@@ -26,7 +26,7 @@ export const site = {
 
   social: {
     instagram: "https://www.instagram.com/chokodelights?igsh=ZnNtYncyOHc4aDB5",
-    facebook: "https://facebook.com/",
+    facebook: "https://www.facebook.com/share/19L4ACAmYs/?mibextid=wwXIfr",
   },
 };
 
