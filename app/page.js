@@ -211,7 +211,9 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
               <a
-                href="#enquire"
+                href={whatsappLink(site.designsMessage)}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-full bg-espresso px-7 py-3.5 text-center font-medium tracking-wide text-ivory shadow-lg shadow-espresso/20 transition hover:bg-gold"
               >
                 Click for more Designs

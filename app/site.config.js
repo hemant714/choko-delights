@@ -7,9 +7,13 @@ export const site = {
   tagline: "One Bite, Endless Cravings",
 
   // Business WhatsApp number (country code, no +, no spaces)
-  whatsappNumber: "917306000005",
+  whatsappNumber: "919729000800",
   whatsappMessage:
     "Hi Choko Delights! I'd like to place a bulk / corporate order. Please share details.",
+
+  // Message specifically for the "Click for more Designs" button
+  designsMessage:
+    "Hi Choko Delights! Could you please share more designs and details?",
 
   // Phone (display + click-to-call)
   phoneDisplay: "073060 00005",
@@ -26,7 +30,5 @@ export const site = {
   },
 };
 
-export const whatsappLink = () =>
-  `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(
-    site.whatsappMessage
-  )}`;
+export const whatsappLink = (message = site.whatsappMessage) =>
+  `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
