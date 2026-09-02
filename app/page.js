@@ -2,6 +2,8 @@ import Image from "next/image";
 import LeadForm from "./components/LeadForm";
 import Reveal from "./components/Reveal";
 import HeroCarousel from "./components/HeroCarousel";
+import MobileNav from "./components/MobileNav";
+import Testimonials from "./components/Testimonials";
 import { site, whatsappLink } from "./site.config";
 
 /* ── Reusable icons ── */
@@ -39,17 +41,17 @@ function FacebookIcon({ className = "h-5 w-5" }) {
 const CATEGORIES = [
   {
     title: "Wedding Gifting",
-    img: "/images/wedding.png",
+    img: "/images/wed.jpg",
     desc: "Heirloom-worthy hampers & favours that make every ceremony unforgettable.",
   },
   {
     title: "Festive Hampers",
-    img: "/images/festive.png",
+    img: "/images/festive-hamper.png",
     desc: "Diwali, Rakhi, Eid & New Year - every celebration, wrapped in gold.",
   },
   {
     title: "Personalized Gifts",
-    img: "/images/personalized.png",
+    img: "/images/custom.jpg",
     desc: "Bespoke trays & curated boxes, designed around your story.",
   },
   {
@@ -130,7 +132,7 @@ const TRUST = [
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden">
+    <main className="overflow-x-hidden pb-14 lg:pb-0">
       {/* ── Announcement bar ── */}
       <div className="bg-espresso text-center text-[0.7rem] tracking-[0.22em] text-champagne uppercase">
         <div className="px-4 py-2">
@@ -153,20 +155,24 @@ export default function Home() {
           </a>
           <nav className="hidden items-center gap-8 text-sm text-espresso-soft lg:flex">
             <a href="#categories" className="transition hover:text-espresso">Collections</a>
+            <a href="#chocolates" className="transition hover:text-espresso">Chocolates</a>
             <a href="#bulk" className="transition hover:text-espresso">Bulk Orders</a>
             <a href="#corporate" className="transition hover:text-espresso">Corporate</a>
             <a href="#why" className="transition hover:text-espresso">Why Us</a>
             <a href="#enquire" className="transition hover:text-espresso">Contact</a>
           </nav>
-          <a
-            href={whatsappLink()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-espresso px-5 py-2.5 text-sm font-medium text-ivory transition hover:bg-gold"
-          >
-            <WhatsAppIcon className="h-4 w-4 fill-current" />
-            <span className="hidden sm:inline">WhatsApp</span> Enquiry
-          </a>
+          <div className="flex items-center gap-1.5">
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-espresso px-5 py-2.5 text-sm font-medium text-ivory transition hover:bg-gold"
+            >
+              <WhatsAppIcon className="h-4 w-4 fill-current" />
+              <span className="hidden sm:inline">WhatsApp</span> Enquiry
+            </a>
+            <MobileNav />
+          </div>
         </div>
       </header>
 
@@ -285,7 +291,14 @@ export default function Home() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {CATEGORIES.map((c, i) => (
             <Reveal key={c.title} delay={i * 100}>
-              <a href="#enquire" className="group block">
+              <a
+                href={whatsappLink(
+                  `Hi Choko Delights! I'm interested in ${c.title}. Could you please share more details?`
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block"
+              >
                 <div className="relative overflow-hidden rounded-2xl border border-espresso/10 shadow-sm transition group-hover:shadow-xl group-hover:shadow-espresso/10">
                   <div className="relative aspect-[4/5]">
                     <Image
@@ -310,6 +323,96 @@ export default function Home() {
               </a>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* ── Raw Chocolate — Bulk / Wholesale (5kg+) ── */}
+      <section id="chocolates" className="mx-auto max-w-6xl px-5 py-16 sm:py-20 md:py-28">
+        <div className="relative overflow-hidden rounded-[1.5rem] border border-gold/25 bg-gradient-to-br from-sand via-champagne to-ivory-deep px-5 py-10 shadow-xl shadow-espresso/10 sm:rounded-[2rem] sm:px-10 sm:py-12 md:px-14 md:py-16">
+          {/* decorative glow */}
+          <div className="pointer-events-none absolute -right-20 -top-24 h-72 w-72 rounded-full bg-gold/25 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-wine/10 blur-3xl" />
+
+          <div className="relative grid items-center gap-10 md:grid-cols-2 md:gap-14">
+            {/* Image with floating badge */}
+            <Reveal className="relative">
+              <div className="relative overflow-hidden rounded-[1.5rem] border border-gold/30 shadow-2xl shadow-espresso/20">
+                <div className="relative aspect-[4/3]">
+                  <Image
+                    src="/images/raw-chocolate.png"
+                    alt="Premium raw chocolate available in bulk from Choko Delights"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-espresso/30 to-transparent" />
+                </div>
+              </div>
+              {/* 5kg+ badge */}
+              <div className="absolute -bottom-5 right-4 flex items-center gap-2 rounded-2xl border border-gold/30 bg-espresso px-5 py-3 shadow-lg shadow-espresso/30">
+                <span className="font-serif text-2xl leading-none text-gold-bright">5kg+</span>
+                <span className="text-[0.62rem] uppercase leading-tight tracking-[0.18em] text-ivory/70">
+                  Minimum
+                  <br />
+                  order
+                </span>
+              </div>
+            </Reveal>
+
+            {/* Content */}
+            <Reveal delay={120}>
+              <span className="eyebrow">Raw Chocolate · Wholesale</span>
+              <h2 className="mt-4 font-serif text-3xl text-espresso text-balance sm:text-4xl md:text-5xl">
+                Buy Raw Chocolate{" "}
+                <span className="gold-text italic">In Bulk</span>
+              </h2>
+              <p className="mt-5 max-w-md leading-relaxed text-espresso-soft">
+                Premium chocolate for bakers, cafés, home chefs and resellers -
+                buy raw chocolate by the kilo at wholesale prices. Browse the
+                range in our catalogue.
+              </p>
+
+              <ul className="mt-7 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+                {[
+                  "Wholesale pricing at scale",
+                  "Dark, milk & white variants",
+                  "Great for baking & melting",
+                  "PAN India delivery",
+                ].map((f) => (
+                  <li key={f} className="flex items-center gap-2.5 text-sm text-espresso">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 shrink-0 text-gold" aria-hidden="true">
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-9 flex flex-col items-start gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+                <a
+                  href="/chocolate-catalogue.pdf"
+                  download="Choko-Delights-Chocolate-Catalogue.pdf"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-espresso px-6 py-3 text-sm font-medium text-ivory shadow-lg shadow-espresso/20 transition hover:bg-gold"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                  </svg>
+                  Download Catalogue
+                </a>
+                <a
+                  href={whatsappLink(
+                    "Hi Choko Delights! I'd like to buy raw chocolate in bulk (5kg+). Please share pricing and available variants."
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-espresso/25 bg-white/50 px-6 py-3 text-sm font-medium text-espresso transition hover:border-gold hover:bg-white/80"
+                >
+                  <WhatsAppIcon className="h-4 w-4 fill-[#25D366]" />
+                  Enquire on WhatsApp
+                </a>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -508,22 +611,7 @@ export default function Home() {
           <div className="ornament mt-5">◆</div>
         </Reveal>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {TESTIMONIALS.map((t, i) => (
-            <Reveal key={t.name} delay={i * 120}>
-              <figure className="flex h-full flex-col rounded-2xl border border-espresso/10 bg-ivory p-7 shadow-sm">
-                <div className="text-gold-bright">★★★★★</div>
-                <blockquote className="mt-4 flex-1 font-serif text-lg italic leading-relaxed text-espresso">
-                  “{t.quote}”
-                </blockquote>
-                <figcaption className="mt-6 border-t border-espresso/10 pt-4">
-                  <p className="font-medium text-espresso">{t.name}</p>
-                  <p className="text-sm text-espresso-soft">{t.role}</p>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
+        <Testimonials items={TESTIMONIALS} />
       </section>
 
       {/* ── Enquiry / CTA ── */}
@@ -619,13 +707,33 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* ── Floating WhatsApp ── */}
+      {/* ── Sticky mobile CTA bar ── */}
+      <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 border-t border-espresso/10 bg-ivory/95 backdrop-blur-md lg:hidden">
+        <a
+          href={`tel:${site.phoneDial}`}
+          className="flex items-center justify-center gap-2 border-r border-espresso/10 py-3.5 text-sm font-medium text-espresso transition active:bg-espresso/5"
+        >
+          <PhoneIcon className="h-5 w-5" />
+          Call Now
+        </a>
+        <a
+          href={whatsappLink()}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 bg-[#25D366] py-3.5 text-sm font-medium text-white transition active:brightness-95"
+        >
+          <WhatsAppIcon className="h-5 w-5 fill-white" />
+          WhatsApp
+        </a>
+      </div>
+
+      {/* ── Floating WhatsApp (desktop only) ── */}
       <a
         href={whatsappLink()}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="group fixed bottom-6 right-6 z-50 flex items-center overflow-hidden rounded-full bg-[#25D366] shadow-xl shadow-black/25 transition-all duration-300 hover:pr-5 hover:shadow-2xl"
+        className="group fixed bottom-6 right-6 z-50 hidden items-center overflow-hidden rounded-full bg-[#25D366] shadow-xl shadow-black/25 transition-all duration-300 hover:pr-5 hover:shadow-2xl lg:flex"
       >
         <span className="flex h-14 w-14 shrink-0 items-center justify-center">
           <WhatsAppIcon className="h-7 w-7 fill-white" />
