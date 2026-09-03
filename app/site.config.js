@@ -7,7 +7,7 @@ export const site = {
   tagline: "One Bite, Endless Cravings",
 
   // Business WhatsApp number (country code, no +, no spaces)
-  whatsappNumber: "919729000800",
+  whatsappNumber: "917368888736",
   whatsappMessage:
     "Hi Choko Delights! I'd like to place a bulk / corporate order. Please share details.",
 

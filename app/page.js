@@ -202,9 +202,10 @@ export default function Home() {
               />
             </div>
             <span className="eyebrow mt-4 block">The Luxury Gifting House</span>
-            <h1 className="mt-5 font-serif text-[2.6rem] leading-[1.06] tracking-tight text-espresso text-balance sm:text-6xl">
-              Some Gifts are <span className="gold-text italic">Remembered</span> Long
-              After the Last Bite.
+            <h1 className="mt-5 font-serif text-[2.3rem] leading-[1.08] tracking-tight text-espresso text-balance sm:text-5xl">
+              Gifts That Make an{" "}
+              <span className="gold-text italic">Impression</span>{" "}
+              Before They&rsquo;re Even Opened
             </h1>
             <p className="mt-6 max-w-md text-base leading-relaxed text-espresso-soft sm:text-lg">
               Handcrafted chocolates and couture{" "}
@@ -339,8 +340,8 @@ export default function Home() {
               <div className="relative overflow-hidden rounded-[1.5rem] border border-gold/30 shadow-2xl shadow-espresso/20">
                 <div className="relative aspect-[4/3]">
                   <Image
-                    src="/images/raw-chocolate.png"
-                    alt="Premium raw chocolate available in bulk from Choko Delights"
+                    src="/images/indulgent-chocolates.png"
+                    alt="Indulgent handcrafted chocolates by Choko Delights"
                     fill
                     sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
@@ -348,28 +349,18 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-espresso/30 to-transparent" />
                 </div>
               </div>
-              {/* 5kg+ badge */}
-              <div className="absolute -bottom-5 right-4 flex items-center gap-2 rounded-2xl border border-gold/30 bg-espresso px-5 py-3 shadow-lg shadow-espresso/30">
-                <span className="font-serif text-2xl leading-none text-gold-bright">5kg+</span>
-                <span className="text-[0.62rem] uppercase leading-tight tracking-[0.18em] text-ivory/70">
-                  Minimum
-                  <br />
-                  order
-                </span>
-              </div>
             </Reveal>
 
             {/* Content */}
             <Reveal delay={120}>
-              <span className="eyebrow">Raw Chocolate · Wholesale</span>
+              <span className="eyebrow">Indulgent Chocolates</span>
               <h2 className="mt-4 font-serif text-3xl text-espresso text-balance sm:text-4xl md:text-5xl">
-                Buy Raw Chocolate{" "}
-                <span className="gold-text italic">In Bulk</span>
+                Every Flavour,{" "}
+                <span className="gold-text italic">Every Mood</span>
               </h2>
               <p className="mt-5 max-w-md leading-relaxed text-espresso-soft">
-                Premium chocolate for bakers, cafés, home chefs and resellers -
-                buy raw chocolate by the kilo at wholesale prices. Browse the
-                range in our catalogue.
+                Premium chocolate for bakers, cafés, home chefs and resellers.
+                Browse the range in our catalogue.
               </p>
 
               <ul className="mt-7 grid gap-x-6 gap-y-3 sm:grid-cols-2">
